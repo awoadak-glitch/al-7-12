@@ -1,91 +1,268 @@
+/* ALMUSTAQBAL futuristic skin – compatible with the existing PS4 host.
+   All original page IDs and button classes are preserved. */
+
 html {
-    background-image: url('img.jpg');
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-color: #24272b;
-    color: white;
+    background-color: #050b17;
+    background-image:
+        linear-gradient(rgba(2, 9, 22, 0.87), rgba(1, 10, 25, 0.94)),
+        url('img.jpg');
+    background-position: center, center;
+    background-size: cover, cover;
+    background-attachment: fixed, fixed;
+    background-repeat: no-repeat, no-repeat;
+    color: #ecfaff;
     text-align: center;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    max-width: 1100px;
+    min-height: 100vh;
+    padding: 28px 16px 34px;
+    margin: 0 auto;
+}
+
+/* Decorative technical grid; it doesn't intercept any clicks. */
+body:before {
+    content: "";
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(35, 215, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(35, 215, 255, 0.045) 1px, transparent 1px);
+    background-size: 42px 42px;
 }
 
 h1 {
-    text-shadow: 0.1em 0.1em 0.2em black;
     font-size: 25px;
-    color: white;
+    color: #f0faff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+    font-weight: 700;
 }
 
 a {
     text-decoration: none;
 }
 
-#progress {
-    display: block;
+#msgs {
+    max-width: 980px;
+    min-height: 88px;
+    margin: 0 auto 13px;
+    padding: 11px 12px 10px;
+    font-size: 27px;
+    letter-spacing: 1px;
+    line-height: 1.35;
+    color: #f8ffff;
+    text-shadow: 0 0 20px rgba(40, 220, 255, 0.28);
 }
 
-#menu {
+#msgs:before {
+    content: "ALMUSTAQBAL  /  PS4 SYSTEM";
     display: block;
+    margin: 0 auto 9px;
+    font-size: 11px;
+    line-height: 1.7;
+    letter-spacing: 3px;
+    font-weight: 700;
+    color: #35e2ff;
+    text-shadow: 0 0 13px rgba(0, 220, 255, 0.65);
 }
 
+hr {
+    max-width: 850px;
+    height: 1px;
+    border: 0;
+    margin: 0 auto;
+    background: linear-gradient(90deg, transparent, #21caff, transparent);
+    box-shadow: 0 0 14px rgba(24, 219, 255, 0.58);
+}
+
+#progress { display: block; }
+#menu { display: block; }
+#crypto { display: none; }
+#tools { display: none; }
+#lnx { display: none; }
+#mods { display: none; }
+
+#menu,
 #crypto {
-    display: none;
+    width: 100%;
+    max-width: 825px;
+    margin: 3px auto 0;
+    padding: 19px 20px 19px;
+    border: 1px solid rgba(39, 200, 255, 0.35);
+    border-radius: 16px;
+    background: linear-gradient(155deg, rgba(14, 33, 58, 0.94), rgba(3, 17, 38, 0.95));
+    box-shadow: 0 12px 42px rgba(0, 0, 0, 0.47), inset 0 0 35px rgba(0, 166, 255, 0.04);
 }
 
-#tools {
-    display: none;
-}
-
-#lnx {
-    display: none;
-}
-
-#mods {
-    display: none;
+.firmware-title {
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #56eaff;
+    margin: 2px auto 17px;
 }
 
 .btn {
-    background-color: #003263;
-    color: white;
+    display: inline-block;
+    vertical-align: middle;
+    background: linear-gradient(180deg, #12385e 0%, #0a2547 100%);
+    color: #f1fbff;
     width: 227px;
-    height: 46px;
-    padding-bottom: 5px;
+    height: 49px;
+    padding: 5px 10px;
     text-align: center;
-    font-size: 20px;
-    margin-top: 8px;
-    margin-bottom: 8px;
-    margin-left: 5px;
-    margin-right: 5px;
-    border-style: none;
-    transition-duration: 0.4s;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    margin: 8px 5px;
+    border: 1px solid #267da6;
+    border-radius: 8px;
     cursor: pointer;
-    border-radius: 4px;
+    transition: background-color 0.25s, border-color 0.25s, box-shadow 0.25s, color 0.25s;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.09), 0 5px 12px rgba(0, 0, 0, 0.23);
 }
 
-.btn:hover {
-    background-color: #0069d9;
+.btn:hover,
+.btn:focus {
+    background: linear-gradient(180deg, #147ba6 0%, #075078 100%);
+    border-color: #48e7ff;
+    color: #ffffff;
+    outline: none;
+    box-shadow: 0 0 18px rgba(33, 213, 255, 0.4), inset 0 0 8px rgba(27, 238, 255, 0.13);
 }
 
-.btn-onln {
-    background-color: #076300;
-}
-
-.btn-onln:hover {
-    background-color: #18891b;
-}
-
-.btn-toolbox {
-    background-color: #ae2301;
-}
-
-.btn-toolbox:hover {
-    background-color: #d42a01;
+.btn:active {
+    background: #0786b0;
 }
 
 .btn-multi {
-    background-color: #b8860b;
+    background: linear-gradient(180deg, #927117 0%, #5b4711 100%);
+    border-color: #e9bb47;
+    color: #fff9d8;
 }
 
-.btn-multi:hover {
-    background-color: #daa520;
+.btn-multi:hover,
+.btn-multi:focus {
+    background: linear-gradient(180deg, #b88e22 0%, #745b1b 100%);
+    border-color: #ffe083;
+    box-shadow: 0 0 17px rgba(255, 192, 52, 0.33);
+}
+
+.btn-onln {
+    background: linear-gradient(180deg, #12604a 0%, #093d32 100%);
+    border-color: #2bab81;
+}
+
+.btn-onln:hover,
+.btn-onln:focus {
+    background: linear-gradient(180deg, #188561 0%, #0d5643 100%);
+    border-color: #56f4ba;
+    box-shadow: 0 0 18px rgba(39, 226, 160, 0.32);
+}
+
+.btn-toolbox {
+    background: linear-gradient(180deg, #7b301d, #4d1b14);
+    border-color: #bc6142;
+}
+
+.btn-toolbox:hover,
+.btn-toolbox:focus {
+    background: linear-gradient(180deg, #9d4124, #672115);
+    border-color: #f58c6b;
+}
+
+.btn-donate {
+    width: 468px;
+    max-width: 100%;
+    height: auto;
+    min-height: 50px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.credits {
+    margin: 22px 0 1px;
+    padding-top: 17px;
+    border-top: 1px solid rgba(42, 177, 223, 0.22);
+    font-size: 15px;
+    color: #9aabc0;
+    font-weight: 400;
+}
+
+.credits a {
+    display: inline-block;
+    margin: 0 6px;
+    font-size: 19px;
+    font-weight: 700;
+    color: #42dfff;
+    text-shadow: 0 0 12px rgba(25, 221, 255, 0.33);
+}
+
+.credits a:hover,
+.credits a:focus {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.thanks {
+    display: block;
+    font-size: 12px;
+    margin-top: 10px;
+    color: #6f899f;
+    font-weight: 400;
+}
+
+#crypto {
+    padding: 20px;
+}
+
+.donation-label {
+    font-size: 18px;
+    color: #f1d36a;
+    margin: 16px 0 12px;
+}
+
+#crypto img {
+    border: 1px solid rgba(46, 205, 255, 0.42);
+    border-radius: 6px;
+    padding: 6px;
+    background: #ffffff;
+    max-width: 100%;
+}
+
+.wallet-address {
+    font-size: 15px;
+    line-height: 1.6;
+    font-weight: 400;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    padding: 0 5px;
+}
+
+@media (max-width: 600px) {
+    body { padding: 15px 10px 24px; }
+    #msgs { font-size: 20px; min-height: 75px; }
+    #msgs:before { font-size: 9px; letter-spacing: 2px; }
+    #menu, #crypto { padding: 17px 10px; border-radius: 11px; }
+    .firmware-title { font-size: 16px; letter-spacing: 1px; }
+    .btn { width: 93%; max-width: 320px; height: 47px; margin: 5px auto; font-size: 16px; }
+    .btn-donate { width: 93%; margin-top: 21px; margin-bottom: 15px; }
+    .wallet-address { font-size: 12px; }
 }
